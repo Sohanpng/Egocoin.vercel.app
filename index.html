@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Egocoin - To the Moon</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="hero" style="background-image: url('background.jpg');">
+    <div class="content">
+      <h1>Egocoin</h1>
+      <p>The meme coin to rise and go to the moon!</p>
+    </div>
+  </div>
+
+  <!-- Pre-Sale Section -->
+  <section id="pre-sale">
+    <h2>Pre-Sale Live Now!</h2>
+    <p>Don't miss your chance to own Egocoin before it's too late!</p>
+    <div class="countdown">
+      <h3>Countdown to End</h3>
+      <div id="timer">00:00:00</div>
+    </div>
+    <div class="progress-container">
+      <label for="progress">Tokens Sold:</label>
+      <progress id="progress" value="30" max="100"></progress>
+      <p>30% Sold</p>
+    </div>
+    <button id="buy-now" disabled>Buy Now - Coming Soon</button>
+  </section>
+
+  <!-- Buy EGO Coming Soon Section -->
+  <section id="coming-soon">
+    <h2>Buy EGO - Coming Soon</h2>
+    <p>Stay tuned! The opportunity to buy Egocoin will be available soon. Join our community to stay updated!</p>
+  </section>
+
+  <!-- Social Links -->
+  <footer>
+    <h2>Join the Egocoin Community</h2>
+    <a href="https://t.me/egocoin" target="_blank">
+      <img src="telegram-icon.png" alt="Telegram" class="social-icon">
+    </a>
+    <a href="https://twitter.com/egocoin" target="_blank">
+      <img src="twitter-icon.png" alt="Twitter" class="social-icon">
+    </a>
+  </footer>
+
+  <script>
+    // Countdown Timer Script
+    const timerElement = document.getElementById('timer');
+    const countdownDate = new Date("2025-05-01T00:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      timerElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+      if (distance < 0) {
+        clearInterval();
+        timerElement.innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>
